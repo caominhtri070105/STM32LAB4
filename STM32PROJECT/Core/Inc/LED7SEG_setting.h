@@ -11,9 +11,12 @@
 #include "global.h"
 #include "main.h"
 
-void display7SEG1();
-void display7SEG2();
+void display7SEG();
 void display7SEGMODE();
 void update7SEGMODE();
+void update7SEG();
+
+extern int counter;
+extern int countermode;
 
 #endif /* INC_LED7SEG_SETTING_H_ */
