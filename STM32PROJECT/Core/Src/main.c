@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "scheduler.h"
@@ -99,6 +100,7 @@ int main(void)
   SCH_Add_Task(Countdown, 0, 1000);
   SCH_Add_Task(Count_index_led, 0, 250);
   SCH_Add_Task(Count_index_led1, 0, 250);
+  SCH_Add_Task(ToggleLed, 0, 250);
   status=INIT;
   status1=INIT;
   mode=INIT;
@@ -219,7 +221,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin */
   GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : GREEN_LED_Pin YELLOW_LED_Pin RED_LED_Pin GREEN_LED1_Pin

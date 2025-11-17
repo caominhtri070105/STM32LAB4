@@ -21,5 +21,6 @@ extern int index_led1;
 
 
 void fsm_manual_run();
+void ToggleLed();
 
 #endif /* INC_FSM_MANUAL_H_ */
