@@ -32,10 +32,9 @@ void fsm_manual_run(){
 		HAL_GPIO_WritePin(YELLOW_LED1_GPIO_Port,YELLOW_LED1_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED1_GPIO_Port,GREEN_LED1_Pin, GPIO_PIN_SET);
 
-		counter=display_red;
 		countermode=02;
-		update7SEG(index_led);
-		update7SEGMODE(index_led1);
+		update7SEG(display_red, index_led);
+		update7SEGMODE(2, index_led1);
 
 
 		Increasing_time(&display_red, &default_red);
@@ -56,8 +55,8 @@ void fsm_manual_run(){
 
 		counter=display_green;
 		countermode=03;
-		update7SEG(index_led);
-		update7SEGMODE(index_led1);
+		update7SEG(display_green, index_led);
+		update7SEGMODE(3, index_led1);
 
 		Increasing_time(&default_green,&display_green);
 		Saving_time(&display_green,&default_green);
@@ -76,10 +75,10 @@ void fsm_manual_run(){
 
 		counter=display_yellow;
 		countermode=04;
-		update7SEG(index_led);
-		update7SEGMODE(index_led1);
+		update7SEG(display_yellow, index_led);
+		update7SEGMODE(4, index_led1);
 
-		Increasing_time(&display_yellow);
+		Increasing_time(&display_yellow, &default_yellow);
 		Saving_time(&display_yellow, &default_yellow);
 		if(isButton1Pressed()==1){
 			mode=INIT;

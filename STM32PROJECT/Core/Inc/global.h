@@ -20,7 +20,8 @@
 #define MAN_GREEN   13
 #define MAN_YELLOW  14
 
-
+extern int counter;
+extern int countermode;
 extern int status;
 extern int status1;
 extern int mode;

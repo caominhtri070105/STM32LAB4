@@ -196,7 +196,7 @@ void display7SEGMODE(int num) {
               break;
       }
   }
-void update7SEGMODE(int index){
+void update7SEGMODE(int countermode, int index){
 	switch(index){
 	case 0:
 		HAL_GPIO_WritePin(EN2_GPIO_Port,EN2_Pin, GPIO_PIN_RESET);
@@ -212,21 +212,19 @@ void update7SEGMODE(int index){
 		break;
 	}
 }
-void update7SEG(int index){
-	switch(index){
-	case 0:
-		HAL_GPIO_WritePin(EN0_GPIO_Port,EN0_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port,EN1_Pin, GPIO_PIN_SET);
-		display7SEG(counter/10);
-		break;
-	case 1:
-		HAL_GPIO_WritePin(EN0_GPIO_Port,EN0_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port,EN1_Pin, GPIO_PIN_RESET);
-		display7SEG(counter%10);
-		break;
-	default:
-		break;
-	}
+void update7SEG(int counter, int index){
+    switch(index){
+    case 0:
+        HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+        display7SEG(counter / 10);
+        break;
+    case 1:
+        HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_RESET);
+        display7SEG(counter % 10);
+        break;
+    }
 }
 
 

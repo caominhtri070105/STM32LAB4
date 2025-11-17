@@ -16,7 +16,5 @@ void display7SEGMODE();
 void update7SEGMODE();
 void update7SEG();
 
-extern int counter;
-extern int countermode;
 
 #endif /* INC_LED7SEG_SETTING_H_ */

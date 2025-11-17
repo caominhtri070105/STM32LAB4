@@ -12,5 +12,8 @@
 #include "LED7SEG_setting.h"
 
 void fsm_automatic_run();
+void Countdown(void);
+void Count_index_led(void);
+void Count_index_led1(void);
 
 #endif /* INC_FSM_AUTOMATIC_H_ */

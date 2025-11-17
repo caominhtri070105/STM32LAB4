@@ -19,10 +19,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "scheduler.h"
+#include "button.h"
+#include "fsm_automatic.h"
+#include "fsm_manual.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,8 +97,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   SCH_Add_Task(Countdown, 0, 1000);
+  SCH_Add_Task(Count_index_led, 0, 250);
+  SCH_Add_Task(Count_index_led1, 0, 250);
+  status=INIT;
+  status1=INIT;
+  mode=INIT;
   while (1)
   {
+	  fsm_manual_run();
 	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
@@ -241,6 +249,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	SCH_Update();
+	getKeyInput();
 }
 /* USER CODE END 4 */
 
