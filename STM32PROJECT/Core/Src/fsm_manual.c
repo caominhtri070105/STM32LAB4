@@ -60,7 +60,7 @@ void fsm_manual_run(){
 		update7SEG(display_red, index_led);
 		update7SEGMODE(2, index_led1);
 
-		Increasing_time(&default_red, &display_red);
+		Increasing_time(&display_red, &default_red);
 		Saving_time(&display_red, &default_red);
 
 		if(isButton1Pressed()==1){
@@ -77,7 +77,7 @@ void fsm_manual_run(){
 		update7SEG(display_green, index_led);
 		update7SEGMODE(3, index_led1);
 
-		Increasing_time(&default_green,&display_green);
+		Increasing_time(&display_green ,&default_green);
 		Saving_time(&display_green,&default_green);
 		if(isButton1Pressed()==1){
 			mode=MAN_YELLOW;
@@ -93,10 +93,12 @@ void fsm_manual_run(){
 		update7SEG(display_yellow, index_led);
 		update7SEGMODE(4, index_led1);
 
-		Increasing_time(&default_yellow, &display_yellow);
+		Increasing_time(&display_yellow, &default_yellow);
 		Saving_time(&display_yellow, &default_yellow);
 		if(isButton1Pressed()==1){
 			mode=INIT;
+			status = INIT;
+		    status1 = INIT;
 		}
 		break;
 	default:
