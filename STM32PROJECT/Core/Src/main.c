@@ -100,13 +100,14 @@ int main(void)
   SCH_Add_Task(Countdown, 0, 1000);
   SCH_Add_Task(Count_index_led, 0, 250);
   SCH_Add_Task(Count_index_led1, 0, 250);
+  SCH_Add_Task(fsm_manual_run, 0, 100);
   SCH_Add_Task(ToggleLed, 0, 250);
+  SCH_Add_Task(getKeyInput, 0, 10);
   status=INIT;
   status1=INIT;
   mode=INIT;
   while (1)
   {
-	  fsm_manual_run();
 	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
@@ -251,7 +252,6 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	SCH_Update();
-	getKeyInput();
 }
 /* USER CODE END 4 */
 

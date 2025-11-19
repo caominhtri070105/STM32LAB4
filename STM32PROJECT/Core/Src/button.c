@@ -26,9 +26,9 @@ int B3KeyReg1 = NORMAL_STATE;
 int B3KeyReg2 = NORMAL_STATE;
 int B3KeyReg3 = NORMAL_STATE;
 
-int TimerForKeyPress1 = 200;
-int TimerForKeyPress2 = 200;
-int TimerForKeyPress3 = 200;
+int TimerForKeyPress1 = 50;
+int TimerForKeyPress2 = 50;
+int TimerForKeyPress3 = 50;
 
 int isButton1Pressed(){
 	if(button1_flag==1){
@@ -74,7 +74,7 @@ void getKeyInput(){
 			if(B1KeyReg2==PRESSED_STATE){
 				//
 				subKeyProcess1();
-				TimerForKeyPress1=200;
+				TimerForKeyPress1=50;
 			}
 		}
 		else{
@@ -93,7 +93,7 @@ void getKeyInput(){
 			if(B2KeyReg2==PRESSED_STATE){
 				//
 				subKeyProcess2();
-				TimerForKeyPress2=200;
+				TimerForKeyPress2=50;
 			}
 		}
 		else{
@@ -113,7 +113,7 @@ void getKeyInput(){
 			if(B3KeyReg2==PRESSED_STATE){
 				//
 				subKeyProcess3();
-				TimerForKeyPress3=200;
+				TimerForKeyPress3=50;
 			}
 		}
 		else{

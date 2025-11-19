@@ -45,3 +45,10 @@ void SCH_Dispatch_Tasks(void){
 		}
 	}
 }
+void SCH_Delete_Task(uint8_t TASK_INDEX){
+	SCH_tasks_G[TASK_INDEX].pTask = 0x0000;
+	SCH_tasks_G[TASK_INDEX].Delay = 0;
+	SCH_tasks_G[TASK_INDEX].Period = 0;
+	SCH_tasks_G[TASK_INDEX].RunMe = 0;
+	current_index_task--;
+}
